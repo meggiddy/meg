@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 
 const links = [
@@ -12,22 +13,22 @@ const links = [
     url: "/portfolio",
   },
   {
-    id: 1,
+    id: 3,
     title: "Blog",
     url: "/blog",
   },
   {
-    id: 1,
+    id: 4,
     title: "About",
     url: "/about",
   },
   {
-    id: 1,
+    id: 5,
     title: "Contact",
     url: "/contact",
   },
   {
-    id: 1,
+    id: 6,
     title: "Dashboard",
     url: "/dashboard",
   },
@@ -35,7 +36,12 @@ const links = [
 function NavBar() {
   return (
     <div>
-      <Link href="/">meg</Link>
+      {links.map((link) => (
+        <Link key={link.id} href={link.url}>
+          {link.title}
+        </Link>
+      ))}
+      <button onClick={()=> {console.log("Logged Out!")}}></button>
     </div>
   );
 }
